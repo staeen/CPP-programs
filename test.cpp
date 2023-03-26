@@ -4,29 +4,28 @@ Recursion
 #include <iostream>
 using namespace std;
 
-bool checkPalindrome(int i, int j, string &str)
+int power(int a, int b)
 {
-    if (i > j) // base case
-        return true;
-    if (str[i] != str[j])
-        return false;
+    if (b == 0)
+        return 1;
+    if (b == 1)
+        return a;
+    int ans = power(a, b / 2);
+    if (b % 2 == 0)
+    {
+        return ans * ans;
+    }
     else
     {
-        return checkPalindrome(i + 1, j - 1, str);
+        return a * ans * ans;
     }
 }
 
 int main()
 {
-    string name = "abcba";
-    bool isPalindrome = checkPalindrome(0, name.length() - 1, name);
-    if (isPalindrome)
-    {
-        cout << "Palindrome " << endl;
-    }
-    else
-    {
-        cout << "Not Palindrome " << endl;
-    }
+    int a, b;
+    cin >> a >> b;
+    int ans = power(a, b);
+    cout << a << " Power " << b << " is " << ans << endl;
     return 0;
 }
