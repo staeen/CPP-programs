@@ -17,6 +17,7 @@ void solve(vector<int> nums, vector<vector<int>> &ans, int index)
     {
         swap(nums[index], nums[j]);
         solve(nums, ans, index + 1);
+        // backtrack
         swap(nums[index], nums[j]);
     }
 }
