@@ -1,5 +1,8 @@
 /*
 Recursion
+Binary Search
+Time complexity O(logn)
+Space complexity O(logn)
 */
 #include <iostream>
 using namespace std;
