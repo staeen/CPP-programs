@@ -28,12 +28,6 @@ public:
         this->health = health;
         this->level = level;
     }
-    Hero(Hero &temp)
-    {
-        cout<<"Copy Constructor called "<<endl;
-        this->health = temp.health;
-        this->level = temp.level;
-    }
     void print()
     {
         cout << "Player stat :" << endl;
@@ -66,13 +60,12 @@ public:
 
 int main()
 {
-    Hero h(70, 'B');
-    // copy constructor
-    Hero z(h);
-    cout << "Z health " << z.getHealth() << endl;
-    cout << "Z level " << z.getLevel() << endl;
-    cout << "H health " << h.getHealth() << endl;
-    cout << "H level " << h.getLevel() << endl;
-
+    Hero y;
+    cout << endl;
+    Hero *z = new Hero(10);
+    cout << z->getHealth() << endl;
+    Hero temp(22, 'B');
+    cout << temp.getHealth() << endl;
+    cout << temp.getLevel() << endl;
     return 0;
 }
