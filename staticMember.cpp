@@ -71,9 +71,6 @@ public:
         level = n;
     }
     // descructor
-    static int random(){
-        return timeToComplete;
-    }
     ~Hero()
     {
         cout << "Destructor called " << endl;
@@ -84,6 +81,10 @@ int Hero::timeToComplete=5;
 int main()
 {
     cout<<"Time to complete "<<Hero::timeToComplete<<endl;
-    cout<<Hero::random()<<endl;
+    Hero b;
+    cout << endl;
+    Hero *a = new Hero();
+
+    delete a; // manual destructor called
     return 0;
 }
