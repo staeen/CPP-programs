@@ -1,6 +1,6 @@
 /*
 Object Oriented Programming
-Destructor
+Copy assignment operator
 */
 #include <iostream>
 #include <cstring>
@@ -70,17 +70,18 @@ public:
     {
         level = n;
     }
-    // descructor
-    ~Hero(){
-        cout<<"Destructor called "<<endl;
-    }
 };
 
 int main()
 {
-    Hero b;
-    cout<<endl;
-    Hero *a=new Hero();
-    delete a;
+    char name1[8] = "Stan";
+    char name2[8] = "Stanzen";
+    Hero h(70, 'D', name1);
+    Hero g(80, 'A', name2);
+    h.print();
+    g.print();
+    h = g; // copy assignment
+    h.print();
+    g.print();
     return 0;
 }

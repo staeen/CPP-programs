@@ -1,6 +1,6 @@
 /*
 Object Oriented Programming
-Destructor
+Shallow and Deep copy
 */
 #include <iostream>
 #include <cstring>
@@ -70,17 +70,21 @@ public:
     {
         level = n;
     }
-    // descructor
-    ~Hero(){
-        cout<<"Destructor called "<<endl;
-    }
 };
 
 int main()
 {
-    Hero b;
-    cout<<endl;
-    Hero *a=new Hero();
-    delete a;
+    Hero h;
+    h.setHealth(12);
+    h.setLevel('D');
+    char name[8] = "Stan";
+    h.setName(name);
+    h.print();
+    Hero g(h);
+    g.print();
+    h.name[0] = 'D';
+    h.print(); 
+    g.print();
+
     return 0;
 }
