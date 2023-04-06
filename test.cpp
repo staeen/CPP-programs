@@ -1,10 +1,19 @@
 /*
 Object Oriented Programming
-heirarchical inheritance
+hybrid inheritance
 */
 #include <iostream>
 
 using namespace std;
+
+class D
+{
+public:
+    void fund()
+    {
+        cout << "inside function D " << endl;
+    }
+};
 
 class A
 {
@@ -22,7 +31,7 @@ public:
         cout << "inside function B " << endl;
     }
 };
-class C : public A
+class C : public A,public D
 {
 public:
     void func()
@@ -40,5 +49,6 @@ int main()
     C c;
     c.funa();
     c.func();
+    c.fund();
     return 0;
 }
