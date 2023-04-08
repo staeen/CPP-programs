@@ -1,6 +1,6 @@
 /*
 Linked list
-Insertion at an position
+Insertion and deletion
 */
 #include <iostream>
 
@@ -16,6 +16,17 @@ public:
     {
         this->data = data;
         this->next = NULL;
+    }
+    ~Node()
+    {
+        int val = this->data;
+        // memory free
+        if (this->next != NULL)
+        {
+            delete next;
+            this->next = NULL;
+        }
+        cout << "Memory freed for node with value " << val << endl;
     }
 };
 
@@ -69,6 +80,35 @@ void print(Node *&head)
     }
     cout << endl;
 }
+
+void deleteNode(int position, Node *&head)
+{
+    if (position == 1)
+    {
+        Node *temp = head;
+        // deleting first or start node
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+    else
+    {
+        // deleting any middle or last node
+        Node *curr = head;
+        Node *prev = NULL;
+        int cnt = 1;
+        while (cnt < position)
+        {
+            prev = curr;
+            curr = curr->next;
+            cnt++;
+        }
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+    }
+}
+
 int main()
 {
     Node *node = new Node(11); // linked list with 10 at head
@@ -89,5 +129,10 @@ int main()
     print(head);
     cout << "Head " << head->data << endl;
     cout << "Tail " << tail->data << endl;
+    cout<<"Deleting some nodes "<<endl;
+    deleteNode(7, head);
+    deleteNode(1,head);
+    deleteNode(3,head);
+    print(head);
     return 0;
 }
