@@ -111,15 +111,15 @@ int main()
     Node *tail = NULL;
     insertNode(tail, 5, 3); // insert into empty list
     insertNode(tail, 3, 5);
-    insertNode(tail, 5, 7);
+    /*insertNode(tail, 5, 7);
     insertNode(tail, 7, 9);
     insertNode(tail, 5, 6);
     insertNode(tail, 9, 10);
-    insertNode(tail, 3, 4);
+    insertNode(tail, 3, 4);*/
     print(tail);
     cout << "Deleting some nodes " << endl;
-    deleteNode(tail, 10);
-    deleteNode(tail, 6);
+    /*deleteNode(tail, 10);
+    deleteNode(tail, 6);*/
     deleteNode(tail, 3);
     print(tail);
     return 0;
