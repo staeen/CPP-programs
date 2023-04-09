@@ -1,6 +1,6 @@
 /*
 Linked list
-Insertion deletion and reversing recursively
+Insertion deletion and reversing iteratively
 */
 #include <iostream>
 
@@ -108,24 +108,24 @@ void deleteNode(int position, Node *&head)
         delete curr;
     }
 }
-
-void reverse(Node* &head,Node* curr,Node* prev){
-    //base case
-    if(curr==NULL){
-        head=prev;
-        return;
-    }
-    Node * forward=curr->next;
-    reverse(head,forward,curr);
-    curr->next=prev;
-}
-
 Node *reverseLinkedList(Node *head) // reversing linked list
 {
+    if (head == NULL || head->next == NULL)
+    {
+        return head;
+    }
+
     Node *prev = NULL;
     Node *curr = head;
-    reverse(head,curr,prev);
-    return head;
+    Node *forward = NULL;
+    while (curr != NULL)
+    {
+        forward = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = forward;
+    }
+    return prev; // returns a node
 }
 
 int main()
