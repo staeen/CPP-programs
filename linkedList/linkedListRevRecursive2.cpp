@@ -1,7 +1,8 @@
 /*
 Linked list
-Middle of linked list
-Time complexity O(n)
+Insertion deletion and reversing recursively
+time complexity O(n)
+space complexity O(n)
 */
 #include <iostream>
 
@@ -128,31 +129,6 @@ Node *reverseLinkedList(Node *head) // reversing linked list
     return reverse(head);
 }
 
-int getLength(Node *head)
-{
-    int len = 0;
-    while (head != NULL)
-    {
-        len++;
-        head = head->next;
-    }
-    return len;
-}
-
-Node *findMiddle(Node *head)
-{
-    int len = getLength(head);
-    int ans = (len / 2);
-    Node *temp = head;
-    int cnt=0;
-    while (cnt<ans)
-    {
-        temp = temp->next;
-        cnt++;
-    }
-    return temp;
-}
-
 int main()
 {
     Node *node = new Node(11); // linked list with 10 at head
@@ -171,12 +147,6 @@ int main()
     print(head);
     insertAtPosition(tail, head, 7, 43);
     print(head);
-    insertAtPosition(tail, head, 7, 40);
-    print(head);
-    insertAtPosition(tail, head, 7, 35);
-    print(head);
-    Node *mid=findMiddle(head);
-    cout<<"Mid "<<mid->data<<endl;
     cout << "Head " << head->data << endl;
     cout << "Tail " << tail->data << endl;
     cout << "Deleting some nodes " << endl;
@@ -184,11 +154,8 @@ int main()
     deleteNode(1, head);
     deleteNode(3, head);
     print(head);
-    Node *mid2=findMiddle(head);
-    cout<<"Mid "<<mid2->data<<endl;
     cout << "After reversing " << endl;
     Node *rev = reverseLinkedList(head);
     print(rev);
-
     return 0;
 }
